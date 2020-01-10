@@ -44,5 +44,7 @@ public abstract class CommandBasedTeleOp extends OpMode {
     @Override
     public final void stop() {
         CommandScheduler.unscheduleAll();
+        CommandScheduler.unregisterAllButtons();
+        CommandScheduler.unregisterAllSubsystems();
     }
 }

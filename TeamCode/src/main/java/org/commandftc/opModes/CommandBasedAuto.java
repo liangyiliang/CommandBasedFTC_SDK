@@ -51,5 +51,7 @@ public abstract class CommandBasedAuto extends OpMode {
     @Override
     public final void stop() {
         CommandScheduler.unscheduleAll();
+        CommandScheduler.unregisterAllButtons();
+        CommandScheduler.unregisterAllSubsystems();
     }
 }

@@ -74,6 +74,10 @@ public final class CommandScheduler {
         Set<Subsystem> usedSs = new HashSet<Subsystem>();
         ArrayList<Command> toRemove = new ArrayList<Command>();
 
+        for(Runnable button : buttons) {
+            button.run();
+        }
+
         for(Command cmd : scheduledCommands) {
             if(cmd.isFinished()) {
                 cmd.real_end(accessToken);
@@ -96,10 +100,6 @@ public final class CommandScheduler {
                 }
             }
         }
-
-        for(Runnable button : buttons) {
-            button.run();
-        }
     }
 
     public static void unscheduleCommand(Command command) {
@@ -117,5 +117,19 @@ public final class CommandScheduler {
         while(!scheduledCommands.isEmpty()) {
             unscheduleCommand(scheduledCommands.get(0));
         }
+    }
+
+    public static void unregisterAllButtons() {
+        buttons.clear();
+    }
+
+    public static void unregisterSubsystems(Subsystem ... sss) {
+        for(Subsystem ss : sss) {
+            subsystems.remove(ss);
+        }
+    }
+
+    public static void unregisterAllSubsystems() {
+        subsystems.clear();
     }
 }
