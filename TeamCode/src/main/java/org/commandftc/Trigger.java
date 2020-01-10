@@ -34,7 +34,7 @@ public class Trigger {
         return this;
     }
 
-    public Trigger whenHeld(Command command) {
+    public Trigger whenPressed(Command command) {
         return whenActive(command);
     }
 
@@ -58,7 +58,7 @@ public class Trigger {
         return this;
     }
 
-    public Trigger whileHeldContinuous(Command command) { 
+    public Trigger whileHeld(Command command) { 
         return whileActiveContinuous(command); 
     }
 
@@ -82,8 +82,8 @@ public class Trigger {
         return this;
     }
 
-    public Trigger whileHeldOnce(Command command) {
-        return whileHeldOnce(command);
+    public Trigger whenHeld(Command command) {
+        return whileActiveOnce(command);
     }
 
     public Trigger whenInactive(final Command command) {

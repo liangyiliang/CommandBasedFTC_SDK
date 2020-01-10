@@ -25,7 +25,7 @@ public class ExampleTeleOp extends CommandBasedTeleOp {
         gp1 = new Gp(gamepad1);
         gp2 = new Gp(gamepad2);
 
-        gp1.a().whileHeldContinuous(new RunCommand(() -> elev.raise()));
-        gp1.b().whileHeldContinuous(new RunCommand(() -> elev.lower()));
+        gp1.a().whileHeld(new RunCommand(() -> elev.raise()));
+        gp1.b().whileHeld(new RunCommand(() -> elev.lower()));
     }
 }

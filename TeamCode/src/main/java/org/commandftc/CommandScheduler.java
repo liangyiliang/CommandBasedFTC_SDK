@@ -50,14 +50,13 @@ public final class CommandScheduler {
     }
 
     public static void scheduleCommand(Command cmd) {
-        if(cmd.isFinished()) {
-            throw new IllegalArgumentException("Cannot schedule a finished command.");
-        }
         if(!subsystems.containsAll(cmd.getRequirements())) {
             throw new IllegalArgumentException("Cannot schedule command because requirement not met.");
         }
-        scheduledCommands.add(cmd);
-        cmd.init();
+        if(!scheduledCommands.contains(cmd)){
+            scheduledCommands.add(cmd);
+            cmd.init();
+        }
     }
 
     public static void scheduleCommands(Command ... cmds) {
