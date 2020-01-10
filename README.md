@@ -1,3 +1,9 @@
+## ABOUT CommandBasedFTC_SDK
+This is a version of CommandBasedFTC_SDK written by Leo "Yiliang" Liang (yiliangl@umich.edu). It uses the latest version of FTC SKYSTONE SDK (up until 1/10/2020). 
+The idea came from U-M's Ri3D project where I programmed a part of an FRC robot, using the WPILIB library. After some learning I found the WPILIB library's CommandBased programming is a very elegant way to code the robot - instead of having to say have a bunch of if...else statements, we now have assignment statements that assign an action on a button (or a customized trigger) to a command. This is declarative programming.
+
+There are many other great features from WPILIB. Take a look through WPILIB's docs!
+
 ## NOTICE
 
 This repository contains the public FTC SDK for the SKYSTONE (2019-2020) competition season.  
