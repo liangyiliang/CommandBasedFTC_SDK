@@ -13,3 +13,14 @@
 
 // Include common definitions from above.
 apply from: '../build.common.gradle'
+
+apply plugin: 'com.android.application'
+
+// apply plugin: 'me.tatarka.retrolambda' // make sure to apply last!
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
