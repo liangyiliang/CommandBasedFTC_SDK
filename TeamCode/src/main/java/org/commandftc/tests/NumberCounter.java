@@ -7,6 +7,10 @@ public class NumberCounter extends Subsystem {
     
     public NumberCounter() { }
 
+    public void reset() {
+        currentNumber = 1;
+    }
+    
     public void toNext() {
         currentNumber ++;
     }

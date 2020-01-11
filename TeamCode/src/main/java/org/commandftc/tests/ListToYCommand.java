@@ -10,6 +10,7 @@ public class ListToYCommand extends Command {
 
     @Override 
     public void init() { 
+        lister.reset();
         System.out.println("LY: Initialized");
     }
 

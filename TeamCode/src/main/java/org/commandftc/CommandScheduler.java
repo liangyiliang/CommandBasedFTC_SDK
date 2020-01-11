@@ -55,7 +55,7 @@ public final class CommandScheduler {
         }
         if(!scheduledCommands.contains(cmd)){
             scheduledCommands.add(cmd);
-            cmd.init();
+            cmd.real_init(accessToken);
         }
     }
 

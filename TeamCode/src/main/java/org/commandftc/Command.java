@@ -48,7 +48,7 @@ public abstract class Command {
 
     /**
      * DO NOT USE THIS METHOD!
-     * This method serves to eliminate double-ending a command.
+     * This method serves to eliminate ending an ended command.
      */
     public void real_end(AccessToken token) {
         Objects.requireNonNull(token);
@@ -57,6 +57,17 @@ public abstract class Command {
             end();
             stopped = true;
         }
+    }
+
+    /**
+     * DO NOT USE THIS METHOD!
+     * This method runs init and sets stopped to false
+     */
+    public void real_init(AccessToken token) {
+        Objects.requireNonNull(token);
+
+        init();
+        stopped = false;
     }
 
     /**

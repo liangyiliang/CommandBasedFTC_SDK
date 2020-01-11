@@ -6,7 +6,14 @@ public class LetterLister extends Subsystem {
     private final char chA = 'A';
     private int currNumber = 0;
     
-    public LetterLister() { }
+    public LetterLister() { 
+        
+    }
+
+    public void reset() {
+        currNumber = 0;
+        
+    }
 
     public void toNext() {
         currNumber = (currNumber + 1) % 26;

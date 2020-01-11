@@ -12,6 +12,7 @@ public class CountTo10Command extends Command {
 
     @Override 
     public void init() { 
+        counter.reset();
         System.out.println("C10: Initialized");
     }
 
