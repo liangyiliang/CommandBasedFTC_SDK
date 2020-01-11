@@ -196,7 +196,7 @@ public class TestSuite {
             if(i == 20) {
                 trig.set(true);
             }
-            if(i == 50) {
+            if(i == 56) {
                 trig.set(false);
             }
             System.out.print(i + "th output: ");
