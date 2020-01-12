@@ -1,6 +1,9 @@
 package org.commandftc;
 
 
+/**
+ * This ParallelCommand ends only when ALL sub-commands end.
+ */
 public class ParallelWaitCommand extends ParallelCommand {
 
     public ParallelWaitCommand(Command ... commands) {
@@ -8,6 +11,9 @@ public class ParallelWaitCommand extends ParallelCommand {
     }
 
 
+    /**
+     * Overrides the "also" method for efficiency.
+     */
     @Override
     public ParallelWaitCommand also(Command other) {
         addCommand(other);

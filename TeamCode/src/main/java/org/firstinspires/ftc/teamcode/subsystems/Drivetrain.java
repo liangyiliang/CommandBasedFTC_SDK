@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.commandftc.Subsystem;
 
-import static org.firstinspires.ftc.teamcode.RobotUniversal.hwMap;
+import static org.commandftc.RobotUniversal.hwMap;
 
 public class Drivetrain extends Subsystem {
     private DcMotor lDrive, rDrive;

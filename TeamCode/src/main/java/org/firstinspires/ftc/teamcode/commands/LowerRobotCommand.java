@@ -4,7 +4,6 @@ import org.commandftc.Command;
 import org.firstinspires.ftc.teamcode.subsystems.Elevator;
 public class LowerRobotCommand extends Command {
     private Elevator elevator;
-
     private final int targetPosition = 10000; // DEPENDS.
 
     public LowerRobotCommand(Elevator elev) {

@@ -2,6 +2,9 @@ package org.commandftc;
 
 import com.qualcomm.robotcore.hardware.Gamepad;
 
+/**
+ * This class represents an FTC gamepad that supports the use of lambda expressions to assign commands.
+ */
 public class Gp {
     private Gamepad gamepad;
     public Gp(Gamepad gamepad) {

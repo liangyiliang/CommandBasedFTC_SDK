@@ -2,12 +2,16 @@ package org.commandftc;
 
 import java.util.LinkedList;
 
+/**
+ * A SequentialCommand is a composite command that 
+ * runs the sub-commands sequentially. Ends when the last sub-command
+ * ends.
+ */
 public class SequentialCommand extends Command {
     /**
-     * This class is used to emulate the C++ "friend" class features. 
-     * @see https://stackoverflow.com/questions/182278/is-there-a-way-to-simulate-the-c-friend-concept-in-java
+     * @see AccessToken
      */
-    public static final class SCAccessToken extends AccessToken {
+    private static final class SCAccessToken extends AccessToken {
         private SCAccessToken() {}
     }
     public static final SCAccessToken accessToken = new SCAccessToken();

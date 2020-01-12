@@ -2,18 +2,35 @@ package org.commandftc;
 
 import java.util.ArrayList;
 
+/**
+ * This class represents a parallel command, where multiple commands
+ * are executed at the same time. This class is abstract, but there are three
+ * concrete subclasses. See each of them for description.
+ * @see ParallelFirstCommand
+ * @see ParallelSpecifiedCommand
+ * @see ParallelWaitCommand
+ */
 public abstract class ParallelCommand extends Command {
     /**
-     * This class is used to emulate the C++ "friend" class features. 
-     * @see https://stackoverflow.com/questions/182278/is-there-a-way-to-simulate-the-c-friend-concept-in-java
+     * @see AccessTiken
      */
-    public static final class PCAccessToken extends AccessToken {
+    private static final class PCAccessToken extends AccessToken {
         private PCAccessToken() {}
     }
+
+    /**
+     * @see AccessToken
+     */
     public static final PCAccessToken accessToken = new PCAccessToken();
 
+    /**
+     * Stores the list of commands to be run simutaneously.
+     */
     protected ArrayList<Command> commands;
 
+    /**
+     * Creates a ParallelCommand and add all commands.
+     */
     public ParallelCommand(final Command ... commands) {
         this.commands = new ArrayList<Command>();
         for (final Command cmd : commands) {
@@ -21,6 +38,9 @@ public abstract class ParallelCommand extends Command {
         }
     }
 
+    /**
+     * Add a command to the list.
+     */
     public void addCommand(final Command cmd) {
         if (!cmd.isFinished()) {
             commands.add(cmd);
@@ -30,13 +50,19 @@ public abstract class ParallelCommand extends Command {
         }
     }
 
+    /**
+     * Initializes all commands in the list.
+     */
     @Override
     public void init() {
         for (final Command cmd : commands) {
-            cmd.init();
+            cmd.real_init(accessToken);
         }
     }
 
+    /**
+     * Executes all commands.
+     */
     @Override
     public void execute() {
         for (final Command cmd : commands) {
@@ -48,6 +74,9 @@ public abstract class ParallelCommand extends Command {
         }
     }
 
+    /**
+     * Ends all commands.
+     */
     @Override
     public void end() {
         for(Command cmd : commands) {
@@ -55,6 +84,10 @@ public abstract class ParallelCommand extends Command {
         }
     }
 
+    /**
+     * Since each subclasses have different "finished" policy, 
+     * this is overriden in each subclasses.
+     */
     @Override
     public abstract boolean isFinished();
 }

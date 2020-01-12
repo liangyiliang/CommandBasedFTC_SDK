@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.commandftc.Command;
 import org.commandftc.CommandScheduler;
+import org.commandftc.RobotUniversal;
 import org.commandftc.Subsystem;
 
 import java.util.HashSet;
@@ -36,8 +37,10 @@ public abstract class CommandBasedAuto extends OpMode {
      */
     @Override
     public final void init() {
+        RobotUniversal.hwMap = hardwareMap;
         plan();
         registerSubsystems();
+        CommandScheduler.unregisterAllButtons();
         CommandScheduler.scheduleCommand(autoCmd);
     }
 
@@ -45,11 +48,13 @@ public abstract class CommandBasedAuto extends OpMode {
 
     @Override
     public final void loop() {
+        CommandScheduler.setOpModeActive(true);
         CommandScheduler.runOnce();
     }
 
     @Override
     public final void stop() {
+        CommandScheduler.setOpModeActive(false);
         CommandScheduler.unscheduleAll();
         CommandScheduler.unregisterAllButtons();
         CommandScheduler.unregisterAllSubsystems();

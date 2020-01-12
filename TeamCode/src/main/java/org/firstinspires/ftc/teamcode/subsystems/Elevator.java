@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.commandftc.Subsystem;
 
-import static org.firstinspires.ftc.teamcode.RobotUniversal.hwMap;
+import static org.commandftc.RobotUniversal.hwMap;
 
 public class Elevator extends Subsystem {
     private DcMotor _elevMotor;

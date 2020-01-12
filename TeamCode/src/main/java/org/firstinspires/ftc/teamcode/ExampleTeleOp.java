@@ -2,6 +2,7 @@
 package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.commandftc.Gp;
+import org.commandftc.RobotUniversal;
 import org.commandftc.RunCommand;
 import org.commandftc.opModes.CommandBasedTeleOp;
 import org.firstinspires.ftc.teamcode.subsystems.Drivetrain;
@@ -14,7 +15,6 @@ public class ExampleTeleOp extends CommandBasedTeleOp {
 
     @Override
     public void assign() {
-        RobotUniversal.hwMap = hardwareMap;
         dt = new Drivetrain();
         elev = new Elevator();
         elev.setDefaultCommand(new RunCommand(() -> elev.stop()));

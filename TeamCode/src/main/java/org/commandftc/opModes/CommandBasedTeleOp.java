@@ -3,6 +3,7 @@ package org.commandftc.opModes;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.commandftc.CommandScheduler;
+import org.commandftc.RobotUniversal;
 import org.commandftc.Subsystem;
 
 import java.util.HashSet;
@@ -30,6 +31,7 @@ public abstract class CommandBasedTeleOp extends OpMode {
      */
     @Override
     public final void init() {
+        RobotUniversal.hwMap = hardwareMap;
         assign();
         registerSubsystems();
     }
@@ -38,11 +40,13 @@ public abstract class CommandBasedTeleOp extends OpMode {
 
     @Override
     public final void loop() {
+        CommandScheduler.setOpModeActive(true);
         CommandScheduler.runOnce();
     }
 
     @Override
     public final void stop() {
+        CommandScheduler.setOpModeActive(false);
         CommandScheduler.unscheduleAll();
         CommandScheduler.unregisterAllButtons();
         CommandScheduler.unregisterAllSubsystems();

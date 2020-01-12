@@ -2,6 +2,7 @@
 package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import org.commandftc.Command;
+import org.commandftc.RobotUniversal;
 import org.commandftc.opModes.CommandBasedAuto;
 import org.firstinspires.ftc.teamcode.commands.DriveForwardTimeCommand;
 import org.firstinspires.ftc.teamcode.commands.LowerRobotCommand;
@@ -14,7 +15,6 @@ public class ExampleAuto extends CommandBasedAuto {
 
     @Override
     public void plan() {
-        RobotUniversal.hwMap = hardwareMap;
         dt = new Drivetrain();
         elev = new Elevator();
 

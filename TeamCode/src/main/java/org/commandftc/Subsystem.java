@@ -1,5 +1,10 @@
 package org.commandftc;
 
+/**
+ * All subsystems should be derived from this class.
+ * This class represents a Subsystem. In it, you should define all the hardwares
+ * and actions of the hardwares.
+ */
 public abstract class Subsystem {
     public Subsystem() {
         CommandScheduler.registerSubsystem(this);
@@ -15,7 +20,8 @@ public abstract class Subsystem {
     }
 
     /**
-     * A default command is executed whenever no other command is executed using this subsystem.
+     * A default command is executed whenever no other scheduled command is
+     * using this subsystem.
      * This function sets the default command.
      * @param command the command that needs to be the default command.
      */
