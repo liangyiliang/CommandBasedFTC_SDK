@@ -17,15 +17,15 @@ public class ExampleTeleOp extends CommandBasedTeleOp {
     public void assign() {
         dt = new Drivetrain();
         elev = new Elevator();
-        elev.setDefaultCommand(new RunCommand(() -> elev.stop()));
-        dt.setDefaultCommand(new RunCommand(() -> dt.tankDrive(gp1.left_stick_y(), gp1.right_stick_y())));
+        elev.setDefaultCommand(new RunCommand(() -> elev.stop(), elev));
+        dt.setDefaultCommand(new RunCommand(() -> dt.tankDrive(gp1.left_stick_y(), gp1.right_stick_y()), dt));
 
         addSubsystems(dt, elev);
 
         gp1 = new Gp(gamepad1);
         gp2 = new Gp(gamepad2);
 
-        gp1.a().whileHeld(new RunCommand(() -> elev.raise()));
-        gp1.b().whileHeld(new RunCommand(() -> elev.lower()));
+        gp1.a().whileHeld(new RunCommand(() -> elev.raise(), elev));
+        gp1.b().whileHeld(new RunCommand(() -> elev.lower(), elev));
     }
 }
