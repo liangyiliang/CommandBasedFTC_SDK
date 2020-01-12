@@ -11,7 +11,6 @@ import org.firstinspires.ftc.teamcode.subsystems.Elevator;
 public class ExampleTeleOp extends CommandBasedTeleOp {
     private Drivetrain dt;
     private Elevator elev;
-    private Gp gp1, gp2;
 
     @Override
     public void assign() {
