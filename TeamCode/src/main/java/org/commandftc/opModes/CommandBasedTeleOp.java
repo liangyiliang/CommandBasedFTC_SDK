@@ -3,6 +3,7 @@ package org.commandftc.opModes;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.commandftc.CommandScheduler;
+import org.commandftc.Gp;
 import org.commandftc.RobotUniversal;
 import org.commandftc.Subsystem;
 
@@ -12,6 +13,10 @@ import java.util.Set;
 public abstract class CommandBasedTeleOp extends OpMode {
 
     private Set<Subsystem> subsystems = new HashSet<>();
+
+    protected Gp gp1 = new Gp(gamepad1);
+    protected Gp gp2 = new Gp(gamepad2);
+
 
     protected final void addSubsystems(Subsystem ... sss) {
         for(Subsystem ss : sss) {
